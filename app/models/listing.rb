@@ -7,6 +7,7 @@ class Listing < ApplicationRecord
 	  	#validates_attachment :image, content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] },
 		   	:storage => :dropbox,
 		    :dropbox_credentials => Rails.root.join("config/dropbox.yml"),
+		    :dropbox_visibility => 'public',
 		    :path => ":style/:id_:filename"
 	end
 validates :name, :description, :price, presence: true
