@@ -14,6 +14,7 @@ validates :name, :description, :price, presence: true
 validates :price, numericality: {greater_than: 0}
 validates_attachment_presence :image
 belongs_to :user
+belongs_to :category
 has_many :orders
 validates_attachment_file_name :image, matches: [/png\z/, /jpe?g\z/]
   # Explicitly do not validate
