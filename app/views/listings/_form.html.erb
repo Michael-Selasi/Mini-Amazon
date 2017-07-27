@@ -14,27 +14,27 @@
 
   <div class="form-group">
     <%= form.label :name %>
-    <%= form.text_field :name, id: :listing_name, class: "form-control" %>
+    <%= form.text_field :name, class: "form-control" %>
   </div>
 
   <div class="form-group">
-    <%= form.label :category_id %>
+    <%= form.label :category_id %><br>
     <%= form.collection_select :category_id, Category.all, :id, :name, {prompt: "Choose a category"}, {class: "btn btn-default dropdown-toggle"} %>
   </div>
 
   <div class="form-group">
     <%= form.label :description %>
-    <%= form.text_area :description, id: :listing_description, class: "form-control" %>
+    <%= form.text_area :description, class: "form-control" %>
   </div>
 
   <div class="form-group">
     <%= form.label :price %>
-    <%= form.text_field :price, id: :listing_price, class: "form-control" %>
+    <%= form.text_field :price, class: "form-control" %>
   </div>
 
   <div class="form-group">
     <%= form.label :image %>
-    <%= form.file_field :image, id: :listing_image, class: "form-control" %>
+    <%= form.file_field :image, class: "form-control" %>
   </div>
 
   <div class="form-group button">
