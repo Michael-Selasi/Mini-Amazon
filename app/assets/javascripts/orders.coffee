@@ -2,12 +2,12 @@ jQuery ->
   Stripe.setPublishableKey($('meta[name="stripe-key"]').attr('content'))  
   order.setupForm()  
 
-order =  
+payment =  
   setupForm: ->  
     $('#new_order').submit (ev) ->
-      ev.preventDefault()
-      $('input[type=submit]').attr('disabled', true)  
-      order.processCard() 
+      $('input[type=submit]').attr('disabled', true)
+      payment.processCard()
+      false
 
   processCard: ->  
     card =  
@@ -15,7 +15,7 @@ order =
       cvc: $('#card_code').val()  
       expMonth: $('#card_month').val()  
       expYear: $('#card_year').val()  
-    Stripe.createToken(card, order.handleStripeResponse)  
+    Stripe.createToken(card, payment.handleStripeResponse)  
 
   handleStripeResponse: (status, response) ->  
     if status == 200
@@ -24,3 +24,4 @@ order =
     else
       $('#stripe_error').text(response.error.message).show()
       $('input[type=submit]').attr('disabled', false)
+    return

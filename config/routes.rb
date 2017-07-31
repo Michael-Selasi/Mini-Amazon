@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
  
+  get 'pay/new'
+
+  get 'pay/thanks'
+
   resources :categories
   devise_for :users
   resources :listings do
